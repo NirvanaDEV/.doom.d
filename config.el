@@ -1,7 +1,9 @@
-;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+;;; ~/.doom.d/config.el --- lexical-binding: t; ---
+;;; Commentary:
 
+;;; Code:
 ;; Place your private configuration here
-(setq display-line-numbers-type 'relative)
+(setq-default display-line-numbers-type 'relative)
 
 ;; This will launch the editor maximized on the top left monitor
 (run-at-time "0.1sec" nil
@@ -28,3 +30,5 @@
 (map! (:map override
         "<f5>" #'term
         "<f6>" #'doom/kill-all-buffers))
+
+;;; config.el ends here
