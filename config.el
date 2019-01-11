@@ -5,14 +5,23 @@
 ;; Place your private configuration here
 (setq-default display-line-numbers-type 'relative)
 
-;; This will launch the editor maximized on the top left monitor
-(run-at-time "0.1sec" nil
-    (lambda ()
-        (let ((fullscreen (frame-parameter (selected-frame) 'maximized)))
-        (sleep-for 0.5)
-        (modify-frame-parameters (selected-frame) '((top + -1057) (left + -1013)))
-        (toggle-frame-maximized)
-        )))
+;; This will launch the editor maximized on the top left monitor of my MacOSX setup
+(cond ((eq system-type 'darwin)
+
+    (run-at-time "0.1sec" nil
+        (lambda ()
+            (let ((fullscreen (frame-parameter (selected-frame) 'maximized)))
+            (sleep-for 0.5)
+            (when window-system (set-frame-position (selected-frame) -1122 -1057))
+            (set-frame-width
+                (selected-frame)
+                    193)
+            (set-frame-height
+                (selected-frame)
+                (/ (display-pixel-height) (frame-char-height)))
+            )))
+
+       ))
 
 ;; Quicker window switching
 (map! :leader
