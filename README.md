@@ -17,3 +17,15 @@ This requires a working install of Doom Emacs which can be found here: https://g
 ## Install
 1. Backup your current `~/.doom.d/` directory if you have one.
 2. Clone the repo to your home directory `git clone https://github.com/NirvanaDEV/.doom.d.git ~/`
+
+## Features
+- Jump to windows with SPC and an arrow key (Cuz H-J-K-L is still a little weird
+  to me, lol)
+- Resize a window horizontally with (SPC -) and (SPC =)
+- Resize a window vertically with (SPC _) and (SPC +)
+- f5 will open up a file set to a register in the config. I use this for my
+  daily org notes
+- f6 kills all buffers (Cuz I'm crazy like that)
+- On Mac I have a mult-monitor setup and I like to keep emacs open on my
+  top-left screen. You can customize the positioning on line 14 and the width on
+  line 17. The height is set to be full height of the screen.
