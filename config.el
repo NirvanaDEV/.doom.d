@@ -26,7 +26,9 @@
 ;; Quicker window sizing
 (map! :leader
         :desc "Window Grow"     "="           #'evil-window-increase-width
-        :desc "Window Shrink"   "-"           #'evil-window-decrease-width)
+        :desc "Window Shrink"   "-"           #'evil-window-decrease-width
+        :desc "Window vGrow"    "+"           #'evil-window-increase-height
+        :desc "Window vShrink"  "_"           #'evil-window-decrease-height)
 
 ;; Quickly open a terminal
 (map! (:map override
