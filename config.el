@@ -49,7 +49,7 @@
 ;; was created to provide a custom way to interact with mpd audio but can be
 ;; used for many other things.
 (map! :leader
-      :desc "Shell Region"      "m"          #'shell-region)
+      :desc "Shell Region"      "r"          #'shell-region)
 
 (defun shell-region (start end)
   "execute region in an inferior shell"
