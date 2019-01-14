@@ -45,4 +45,15 @@
         "<f5>" #'"C-x r j d" ;; This opens the file set in line 27 above
         "<f6>" #'doom/kill-all-buffers))
 
+;; This binds leader "r" to run the selected region as a shell command. This
+;; was created to provide a custom way to interact with mpd audio but can be
+;; used for many other things.
+(map! :leader
+      :desc "Shell Region"      "m"          #'shell-region)
+
+(defun shell-region (start end)
+  "execute region in an inferior shell"
+  (interactive "r")
+  (shell-command  (buffer-substring-no-properties start end)))
+
 ;;; config.el ends here
