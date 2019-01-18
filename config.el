@@ -66,8 +66,8 @@
    :name "Compulse"
    :default t
    :client-id "316069922935.527719886581"
-   :client-secret "3f328ee0dfd72461bedeebab0563e9c6"
-   :token "xoxp-316069922935-477989164341-527529023554-3b9cbadd120565478971b518b2613be0"
+   :client-secret "283321aab650561a9af9f480818e04d3"
+   :token "xoxp-316069922935-477989164341-527034862400-2661689ab4ae40cfab0936af06ea800b"
    :full-and-display-names t)
   )
 
