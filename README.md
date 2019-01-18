@@ -17,6 +17,10 @@ This requires a working install of Doom Emacs which can be found here: https://g
 ## Install
 1. Backup your current `~/.doom.d/` directory if you have one.
 2. Clone the repo to your home directory `git clone https://github.com/NirvanaDEV/.doom.d.git ~/`
+3. Make tweaks to init.el, config.el, and packages.el as desired 
+4. Run `make` in a terminal from within the `.emacs.d/` directory
+5. Repeat #4 whenever you make changes to init.el or packages.el (maybe even
+   config.el for good measure)
 
 ## Features
 - Jump to windows with SPC and an arrow key (Cuz H-J-K-L is still a little weird
@@ -29,3 +33,8 @@ This requires a working install of Doom Emacs which can be found here: https://g
 - On Mac I have a mult-monitor setup and I like to keep emacs open on my
   top-left screen. You can customize the positioning on line 14 and the width on
   line 17. The height is set to be full height of the screen.
+- Integrated slack. For more details on adjusting the config and initial setup
+  check out https://github.com/yuya373/emacs-slack . NOTE: The client id, secret
+  and token have all been hidden for security reasons. Lines 59 through 77
+  should be commented out during initial setup and then the id, secret and token
+  replaced with your own.

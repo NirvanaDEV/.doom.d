@@ -11,14 +11,14 @@
     (run-at-time "0.1sec" nil
         (lambda ()
             (let ((fullscreen (frame-parameter (selected-frame) 'maximized)))
-            (when window-system (set-frame-position (selected-frame) -1122 -1057))
+            (when window-system (set-frame-position (selected-frame) -1120 -1057))
             (set-frame-width
                 (selected-frame)
-                    193)
+                    272)
             (set-frame-height
                 (selected-frame)
                 (/ (display-pixel-height) (frame-char-height)))
-            (set-frame-parameter (selected-frame) 'alpha 95)
+            (set-frame-parameter (selected-frame) 'alpha 90)
             )))
 
        ))
@@ -55,5 +55,25 @@
   "execute region in an inferior shell"
   (interactive "r")
   (shell-command  (buffer-substring-no-properties start end)))
+
+(def-package! slack
+  :commands (slack-start)
+  :init
+  (setq slack-buffer-emojify nil) ;; if you want to enable emoji, default nil
+  (setq slack-prefer-current-team t)
+  :config
+  (slack-register-team
+   :name "Compulse"
+   :default t
+   :client-id "316069922935.527719886581"
+   :client-secret "3f328ee0dfd72461bedeebab0563e9c6"
+   :token "xoxp-316069922935-477989164341-527529023554-3b9cbadd120565478971b518b2613be0"
+   :full-and-display-names t)
+  )
+
+(def-package! alert
+  :commands (alert)
+  :init
+  (setq alert-default-style 'notifier))
 
 ;;; config.el ends here

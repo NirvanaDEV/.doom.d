@@ -7,3 +7,6 @@
 ;; (package! builtin-package :disable t)
 (package! php-mode)
 (package! neotree)
+(package! slack)
+(package! 0blayout)
+(package! oauth)
