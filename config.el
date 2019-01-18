@@ -63,11 +63,11 @@
   (setq slack-prefer-current-team t)
   :config
   (slack-register-team
-   :name "Compulse"
+   :name "your_team_name"
    :default t
-   :client-id "316069922935.527719886581"
-   :client-secret "3f328ee0dfd72461bedeebab0563e9c6"
-   :token "xoxp-316069922935-477989164341-527529023554-3b9cbadd120565478971b518b2613be0"
+   :client-id "your_client_id"
+   :client-secret "your_client_secret"
+   :token "xoxb_your_token"
    :full-and-display-names t)
   )
 
@@ -75,5 +75,4 @@
   :commands (alert)
   :init
   (setq alert-default-style 'notifier))
-
 ;;; config.el ends here
