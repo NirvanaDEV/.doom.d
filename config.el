@@ -46,16 +46,27 @@
         :desc "Window vGrow"    "+"           #'evil-window-increase-height
         :desc "Window vShrink"  "_"           #'evil-window-decrease-height)
 
-;; This binds leader "r" to run the selected region as a shell command. This
+;; This binds leader "R" to run the selected region as a shell command. This
 ;; was created to provide a custom way to interact with mpd audio but can be
 ;; used for many other things.
 (map! :leader
-      :desc "Shell Region"      "r"          #'shell-region)
+      :desc "Shell Region"      "R"          #'shell-region)
+
+;; This binds leader "r" to run the current line as a shell command. This
+;; was created to provide a custom way to interact with mpd audio but can be
+;; used for many other things.
+(map! :leader
+      :desc "Shell Line"      "r"          #'shell-line)
 
 (defun shell-region (start end)
   "execute region in an inferior shell"
   (interactive "r")
   (shell-command  (buffer-substring-no-properties start end)))
+
+(defun shell-line ()
+  "execute region in an inferior shell"
+  (interactive)
+  (shell-command  (thing-at-point 'line t)))
 
 ;; Use web-mode by default for these types of files
 (require 'web-mode)
