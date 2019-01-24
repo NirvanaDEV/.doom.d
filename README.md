@@ -33,8 +33,5 @@ This requires a working install of Doom Emacs which can be found here: https://g
 - On Mac I have a mult-monitor setup and I like to keep emacs open on my
   top-left screen. You can customize the positioning on line 14 and the width on
   line 17. The height is set to be full height of the screen.
-- Integrated slack. For more details on adjusting the config and initial setup
-  check out https://github.com/yuya373/emacs-slack . NOTE: The client id, secret
-  and token have all been hidden for security reasons. Lines 59 through 77
-  should be commented out during initial setup and then the id, secret and token
-  replaced with your own.
+- Execute a slected region line-for-line as shell commands using (SPC R)
+- Execute the current line as a shell command using (SPC r)
