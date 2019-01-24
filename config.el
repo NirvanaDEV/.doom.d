@@ -1,8 +1,9 @@
 ;;; ~/.doom.d/config.el --- lexical-binding: t; ---
-;;; Commentary:
+;;; Commentary: My very own doom emacs config
 
 ;;; Code:
 ;; Place your private configuration here
+
 (setq-default display-line-numbers-type 'relative)
 
 ;; This will launch the editor sized, positioned and styled on my MacOSX setup
@@ -20,11 +21,16 @@
                 (/ (display-pixel-height) (frame-char-height)))
             (set-frame-parameter (selected-frame) 'alpha 90)
             )))
-
        ))
 
 ;; Setup a register "d" to hold our DailyORG.org file
 (set-register ?d (cons 'file "~/Documents/DailyORG.org"))
+
+;; This binds f5 to open the file set to register "d" above. Also, we set f6
+;; to kill all open buffers because I like keeping things tidy.
+(map! (:map override
+        "<f5>" #'"C-x r j d" ;; This opens the file set in line 27 above
+        "<f6>" #'doom/kill-all-buffers))
 
 ;; Quicker window switching
 (map! :leader
@@ -40,11 +46,6 @@
         :desc "Window vGrow"    "+"           #'evil-window-increase-height
         :desc "Window vShrink"  "_"           #'evil-window-decrease-height)
 
-;; Quickly open a terminal
-(map! (:map override
-        "<f5>" #'"C-x r j d" ;; This opens the file set in line 27 above
-        "<f6>" #'doom/kill-all-buffers))
-
 ;; This binds leader "r" to run the selected region as a shell command. This
 ;; was created to provide a custom way to interact with mpd audio but can be
 ;; used for many other things.
@@ -56,6 +57,7 @@
   (interactive "r")
   (shell-command  (buffer-substring-no-properties start end)))
 
+;; Use web-mode by default for these types of files
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -65,28 +67,8 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+;; Remember sessions and load the last when we restart emacs
 (require 'session)
     (add-hook 'after-init-hook 'session-initialize)
-
-
-(def-package! slack
-  :commands (slack-start)
-  :init
-  (setq slack-buffer-emojify nil) ;; if you want to enable emoji, default nil
-  (setq slack-prefer-current-team t)
-  :config
-  (slack-register-team
-   :name "Compulse"
-   :default t
-   :client-id "316069922935.527719886581"
-   :client-secret "283321aab650561a9af9f480818e04d3"
-   :token "xoxp-316069922935-477989164341-527034862400-2661689ab4ae40cfab0936af06ea800b"
-   :full-and-display-names t)
-  )
-
-(def-package! alert
-  :commands (alert)
-  :init
-  (setq alert-default-style 'notifier))
 
 ;;; config.el ends here
