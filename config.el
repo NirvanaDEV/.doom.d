@@ -12,10 +12,10 @@
     (run-at-time "0.1sec" nil
         (lambda ()
             (let ((fullscreen (frame-parameter (selected-frame) 'maximized)))
-            (when window-system (set-frame-position (selected-frame) -1120 -1057))
+            (when window-system (set-frame-position (selected-frame) -1080 -1190))
             (set-frame-width
                 (selected-frame)
-                    272)
+                    153)
             (set-frame-height
                 (selected-frame)
                 (/ (display-pixel-height) (frame-char-height)))
@@ -26,11 +26,29 @@
 ;; Setup a register "d" to hold our DailyORG.org file
 (set-register ?d (cons 'file "~/Documents/DailyORG.org"))
 
+;; Define a function to open the Google Chrome App (switches focus in OSX)
+(defun shell-chrome ()
+  (interactive)
+  (shell-command "open -a \"Google Chrome.app\""))
+
+;; Define a function to open the Outlook App (switches focus in OSX)
+(defun shell-outlook ()
+  (interactive)
+  (shell-command "open -a \"Microsoft Outlook.app\""))
+
+;; Define a function to open the Outlook App (switches focus in OSX)
+(defun shell-slack ()
+  (interactive)
+  (shell-command "open -a \"Slack.app\""))
+
 ;; This binds f5 to open the file set to register "d" above. Also, we set f6
 ;; to kill all open buffers because I like keeping things tidy.
 (map! (:map override
         "<f5>" #'"C-x r j d" ;; This opens the file set in line 27 above
-        "<f6>" #'doom/kill-all-buffers))
+        "<f6>" #'doom/kill-all-buffers
+        "<M-f6>" #'shell-chrome
+        "<M-f7>" #'shell-outlook
+        "<M-f8>" #'shell-slack))
 
 ;; Quicker window switching
 (map! :leader
