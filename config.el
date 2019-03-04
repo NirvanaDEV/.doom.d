@@ -40,6 +40,11 @@
 (defun shell-slack ()
   (interactive)
   (shell-command "open -a \"Slack.app\""))
+;;
+;; Define a function to open the Outlook App (switches focus in OSX)
+(defun shell-terminal ()
+  (interactive)
+  (shell-command "open -a \"Terminal.app\""))
 
 ;; This binds f5 to open the file set to register "d" above. Also, we set f6
 ;; to kill all open buffers because I like keeping things tidy.
@@ -48,21 +53,24 @@
         "<f6>" #'doom/kill-all-buffers
         "<M-f6>" #'shell-chrome
         "<M-f7>" #'shell-outlook
-        "<M-f8>" #'shell-slack))
+        "<M-f8>" #'shell-slack
+        "<M-S-f5>" #'shell-terminal))
 
 ;; Quicker window switching
 (map! :leader
         :desc "Window Left"     "<left>"      #'evil-window-left
         :desc "Window Right"    "<right>"     #'evil-window-right
         :desc "Window Up"       "<up>"        #'evil-window-up
-        :desc "window Down"     "<down>"      #'evil-window-down)
+        :desc "window Down"     "<down>"      #'evil-window-down
+        :desc "Window Up"       "k"           #'evil-window-up
+        :desc "Window Down"     "j"           #'evil-window-down)
 
 ;; Quicker window sizing
 (map! :leader
-        :desc "Window Grow"     "="           #'evil-window-increase-width
-        :desc "Window Shrink"   "-"           #'evil-window-decrease-width
-        :desc "Window vGrow"    "+"           #'evil-window-increase-height
-        :desc "Window vShrink"  "_"           #'evil-window-decrease-height)
+        :desc "Window Grow"     "+"           #'evil-window-increase-width
+        :desc "Window Shrink"   "_"           #'evil-window-decrease-width
+        :desc "Window vGrow"    "="           #'evil-window-increase-height
+        :desc "Window vShrink"  "-"           #'evil-window-decrease-height)
 
 ;; This binds leader "R" to run the selected region as a shell command. This
 ;; was created to provide a custom way to interact with mpd audio but can be
