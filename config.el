@@ -24,7 +24,7 @@
        ))
 
 ;; Setup a register "d" to hold our DailyORG.org file
-(set-register ?d (cons 'file "~/Documents/DailyORG.org"))
+(set-register ?d (cons 'file "~/Documents/notebook/index.org"))
 
 ;; Define a function to open the Google Chrome App (switches focus in OSX)
 (defun shell-chrome ()
